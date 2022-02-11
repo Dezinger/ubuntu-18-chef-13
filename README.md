@@ -1,0 +1,3 @@
+# Chef 13 on Ubuntu 18.04 LTS (Bionic Beaver) Docker Image
+
+...
