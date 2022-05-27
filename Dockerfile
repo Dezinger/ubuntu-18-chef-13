@@ -18,13 +18,13 @@ RUN apt-get update && \
     apt-get install $APT_ARGS \
     ca-certificates git ssh && \
     curl -L --progress-bar https://www.chef.io/chef/install.sh | bash -s -- -P chefdk -v ${CHEFDK_VER} && \
-    chef gem install knife-openvpn -v 0.0.6 && \
+    chef gem install /var/tmp/knife-openvpn/knife-openvpn-0.0.6.gem && \
     mkdir -p $COOKBOOK_PATH && \
 # setup mode
     chmod +x /usr/local/bin/add-ssh-keys.sh && \    
 # Clean and remove not required packages
     apt-get autoremove -y && \
-    rm -rf /var/cache/apt/archives/*
+    rm -rf /var/cache/apt/archives/* /var/tmp/knife-openvpn
 
 VOLUME ["$SSH_KEYS_DIRECTORY", "$COOKBOOK_PATH"]
 
